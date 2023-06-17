@@ -1,0 +1,35 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'org.libvirt'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/net.java.dev.jna/jna
+    implementation 'net.java.dev.jna:jna:5.13.0'
+
+    // Use JUnit test framework
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.7.0'
+    testImplementation 'org.mockito:mockito-core:3.3.3'
+    testImplementation 'org.mockito:mockito-inline:3.4.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:4.1.0'
+    testImplementation 'org.jsoup:jsoup:1.7.2'
+    testImplementation 'org.assertj:assertj-core:3.19.0'
+    testImplementation 'pl.pragmatists:JUnitParams:1.1.1'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        showStandardStreams = true
+        exceptionFormat = 'full'
+        events("passed", "skipped", "failed")
+    }
+}
